@@ -1,0 +1,7 @@
+.todoSection{
+    max-width: 420px;
+    width: 90%;
+    border: 1px solid gray;
+    border-radius: 12px;
+    padding: 24px;
+}
