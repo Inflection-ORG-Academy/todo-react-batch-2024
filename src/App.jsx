@@ -4,10 +4,26 @@ import style from "./App.module.css";
 
 function App() {
   const [inputTask, setInputTask] = useState("");
+  const [tasks, setTasks] = useState([]);
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("Hello");
+    console.log(inputTask);
+    setTasks((prevState) => [
+      { task: inputTask, isCompleted: false },
+      ...prevState,
+    ]);
+
+    setInputTask("");
+  }
+
+  function updateTask(index) {
+    console.log(index);
+    setTasks(
+      tasks.map((item, elIndex) =>
+        elIndex === index ? { ...item, isCompleted: true } : item
+      )
+    );
   }
 
   return (
@@ -20,14 +36,38 @@ function App() {
             required
             id="task"
             name="task"
+            value={inputTask}
             onChange={(e) => {
-              console.log(e.target.value);
               setInputTask(e.target.value);
             }}
           />
           <button type="submit">Add Task</button>
         </form>
-        <p>{inputTask}</p>
+
+        <ul>
+          {tasks.map((element, index) => (
+            <li
+              key={index}
+              style={
+                element.isCompleted
+                  ? { textDecoration: "line-through" }
+                  : { textDecoration: "none" }
+              }
+            >
+              <p>{element.task}</p>
+              <div>
+                <button
+                  onClick={() => {
+                    updateTask(index);
+                  }}
+                >
+                  Done
+                </button>
+                <button>Del</button>
+              </div>
+            </li>
+          ))}
+        </ul>
       </section>
     </React.Fragment>
   );
