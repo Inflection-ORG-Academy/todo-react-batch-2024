@@ -1,7 +1,68 @@
 .todoSection{
     max-width: 420px;
-    width: 90%;
-    border: 1px solid gray;
+    border: 1px solid rgba(128, 128, 128, 0.614);
     border-radius: 12px;
     padding: 24px;
+    max-height: 500px;
+    background-color: white;
+    align-self: center;
+    margin-top: -12px; 
+    box-shadow: 1px 1px 8px rgb(234, 234, 234);
+}
+
+h1{
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.todoSection form{
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+input{
+    padding: 6px 12px;
+    border-radius: 4px;
+    outline: none;
+    border: 1.5px solid gray;
+}
+
+input:focus{
+    border: 1.5px solid navy;
+}
+
+.todoSection form button{
+    background-color: navy;
+    color: white;
+    padding: 6px 24px;
+    white-space: nowrap;
+    border: none;
+    border-radius: 4px;
+}
+
+ul{
+    list-style: none;
+    padding-right:12px ;
+}
+
+ul > li{
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+    background-color: rgb(228, 228, 228);
+    align-items: center;
+    border-radius: 4px;
+}
+
+ul li div{
+    display: flex;
+    gap: 4px;
+}
+ul li div button{
+    padding: 4px;
+    border: none;
+    background-color: transparent;
 }
